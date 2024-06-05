@@ -17,12 +17,12 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/sam/configuration.nix
-        ./hosts/sam/stylix.nix
+        ./home/stylix.nix
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {
 	      home-manager.useUserPackages = true;
-	      home-manager.users.sam = import ./hosts/sam/home.nix;
+	      home-manager.users.sam = import ./home;
 	    }
       ];
     };
