@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      ./firefox.nix
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
