@@ -84,7 +84,7 @@
   environment.systemPackages = with pkgs; [
     rustc
     cargo
-    libgcc
+    gcc
     xclip
     ripgrep
 

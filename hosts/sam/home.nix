@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./kitty.nix
     # ./hyprland.nix
+    ./kitty.nix
     ./cli.nix
   ];
 
@@ -14,21 +14,20 @@
   };
 
   home.packages = [
-    pkgs.nerdfonts
+    (pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; })
   ];
 
   home.enableNixpkgsReleaseCheck = false;
 
   # Let Home Manager install and manage itself.
-  # programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
   programs.zsh = {
       enable = true;
       zplug = {
         enable = true;
         plugins = [
-          { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-          { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; } # Installations with additional options. For the list of options, please refer to Zplug README.
+          { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
         ];
       };
       shellAliases = {
