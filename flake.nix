@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "Sam's NixOS Config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -10,17 +10,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/sam/configuration.nix
-        inputs.home-manager.nixosModules.default
-	./modulebundle.nix
-	{
-	  home-manager.useUserPackages = true;
-	  home-manager.users.sam = import ./hosts/sam/home.nix;
-	}
+	    ./modulebundle.nix
+        home-manager.nixosModules.home-manager
+        {
+	      home-manager.useUserPackages = true;
+	      home-manager.users.sam = import ./hosts/sam/home.nix;
+	    }
       ];
     };
   };
