@@ -12,6 +12,16 @@
       inputs.home-manager.nixosModules.default
     ];
 
+  programs.hyprland = {
+      enable = true;
+      xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NISOS_OZONE_WL = "1";
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

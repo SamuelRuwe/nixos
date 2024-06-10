@@ -5,6 +5,7 @@
     # ./hyprland.nix
     ./kitty.nix
     ./cli.nix
+    ./programs
   ];
 
   home = {
