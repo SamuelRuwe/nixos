@@ -12,15 +12,20 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-  };
-
-  environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NISOS_OZONE_WL = "1";
-  };
+#  programs.hyprland = {
+#      enable = true;
+#      xwayland.enable = true;
+#  };
+#
+#  hardware = {
+#      opengl.enable = true;
+#      nvidia.modesetting.enable = true;
+#  };
+#
+#  environment.sessionVariables = {
+#      WLR_NO_HARDWARE_CURSORS = "1";
+#      NISOS_OZONE_WL = "1";
+#  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -102,6 +107,12 @@
     tmux
     curl
     vim
+
+   # (pkgs.waybar.overrideAttrs (oldAttrs: {
+   #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true"];
+   #   })
+   # )
+
   ];
 
   programs.zsh.enable = true;

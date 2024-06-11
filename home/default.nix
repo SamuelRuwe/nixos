@@ -2,7 +2,8 @@
 
 {
   imports = [
-    # ./hyprland.nix
+    ./zsh.nix
+    ./hyprland.nix
     ./kitty.nix
     ./cli.nix
     ./programs
@@ -23,18 +24,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.zsh = {
-      enable = true;
-      zplug = {
-        enable = true;
-        plugins = [
-          { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-        ];
-      };
-      shellAliases = {
-          ll = "ls -l";
-	      update = "sudo nixos-rebuild switch --flake '.#default'";
-          cl = "clear";
-      };
-  };
 }
