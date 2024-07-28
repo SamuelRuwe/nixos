@@ -97,17 +97,18 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    rustc
     cargo
-    gcc
-    xclip
-    ripgrep
-
-    git
-    tmux
     curl
+    gcc
+    git
+    gopls
+    ripgrep
+    rustc
+    tmux
+    unzip
     vim
-
+    xclip
+    lua54Packages.luarocks
    # (pkgs.waybar.overrideAttrs (oldAttrs: {
    #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true"];
    #   })
