@@ -19,12 +19,12 @@ in
         vim-nix
         plenary-nvim
 
-        # {
-        #   plugin = telescope-nvim;
-        #   type = "lua";
-        #   config = builtins.readFile ./telescope.lua;
-        # }
-        #
+        {
+          plugin = telescope-nvim;
+          type = "lua";
+          config = builtins.readFile ./telescope.lua;
+        }
+
 
         nvim-treesitter.withAllGrammars
         nvim-lspconfig
@@ -71,7 +71,6 @@ in
         ${builtins.readFile ./init.lua}
         ${builtins.readFile ./remap.lua}
         ${builtins.readFile ./set.lua}
-        ${builtins.readFile ./kickstartinit.lua}
       '';
     };
 
