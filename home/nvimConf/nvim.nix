@@ -27,7 +27,6 @@ in
 
 
         nvim-treesitter.withAllGrammars
-        nvim-lspconfig
 
         fidget-nvim
 
@@ -43,6 +42,11 @@ in
         luasnip
         cmp_luasnip
 
+        {
+          plugin = nvim-lspconfig;
+          type = "lua";
+          config = builtins.readFile ./lspconfig.lua;
+        }
 
         {
           plugin = which-key-nvim;
