@@ -23,8 +23,8 @@
         {
 	      home-manager.useUserPackages = true;
 	      home-manager.users.sam = import ./home;
-          home-manager.backupFileExtension = "backup";
-	    }
+              home-manager.backupFileExtension = "backup";
+	}
       ];
     };
   };

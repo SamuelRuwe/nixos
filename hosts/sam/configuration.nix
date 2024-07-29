@@ -87,13 +87,6 @@
     ];
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -101,19 +94,12 @@
     curl
     gcc
     git
-    gopls
     ripgrep
     rustc
     tmux
     unzip
-    vim
     xclip
-    lua54Packages.luarocks
-   # (pkgs.waybar.overrideAttrs (oldAttrs: {
-   #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true"];
-   #   })
-   # )
-
+    gopls
   ];
 
   programs.zsh.enable = true;

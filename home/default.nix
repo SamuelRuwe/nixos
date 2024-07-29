@@ -7,6 +7,7 @@
     ./kitty.nix
     ./cli.nix
     ./programs
+    ./nvimConf/nvim.nix
   ];
 
   home = {
@@ -23,5 +24,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
 }
