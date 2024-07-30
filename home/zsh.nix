@@ -1,8 +1,11 @@
 { pkgs, ... }:
 
 {
-  programs.zsh = {
+  programs = {
+    zsh = {
       enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       dotDir = ".config/zsh";
 
@@ -13,12 +16,14 @@
 
       shellAliases = {
           ll = "ls -l";
-	      update = "sudo nixos-rebuild switch --flake '.#default'";
+          update = "sudo nixos-rebuild switch --flake '.#default'";
           cl = "clear";
       };
-  };
-  programs.thefuck = {
+    };
+
+    thefuck = {
       enable = true;
       enableZshIntegration = true;
+    };
   };
 }

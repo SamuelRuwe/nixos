@@ -10,14 +10,20 @@ in
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+      defaultEditor = true;
 
       plugins = with pkgs.vimPlugins; [
         comment-nvim
-        indent-blankline-nvim
         nvim-web-devicons
         trouble-nvim
         vim-nix
         plenary-nvim
+
+        {
+          plugin = indent-blankline-nvim;
+          type = "lua";
+          config = builtins.readFile ./indent_line.lua;
+        }
 
         {
           plugin = telescope-nvim;
