@@ -13,11 +13,22 @@ in
       defaultEditor = true;
 
       plugins = with pkgs.vimPlugins; [
-        comment-nvim
         nvim-web-devicons
         trouble-nvim
         vim-nix
         plenary-nvim
+
+        {
+          plugin = mini-nvim;
+          type = "lua";
+          config = builtins.readFile ./mini.lua;
+        }
+
+        {
+          plugin = oil-nvim;
+          type = "lua";
+          config = builtins.readFile ./oil.lua;
+        }
 
         {
           plugin = indent-blankline-nvim;
@@ -83,7 +94,6 @@ in
         ${builtins.readFile ./set.lua}
       '';
     };
-
   };
 }
 

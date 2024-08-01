@@ -94,7 +94,6 @@
     tmux
     unzip
     xclip
-    gopls
   ];
 
   programs.zsh.enable = true;
