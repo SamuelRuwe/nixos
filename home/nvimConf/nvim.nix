@@ -19,9 +19,21 @@ in
         plenary-nvim
 
         {
-          plugin = mini-nvim;
+          plugin = tokyonight-nvim;
           type = "lua";
-          config = builtins.readFile ./mini.lua;
+          config = builtins.readFile ./colors.lua;
+        }
+
+        {
+          plugin = undotree;
+          type = "lua";
+          config = builtins.readFile ./undotree.lua;
+        }
+
+        {
+          plugin = rustaceanvim;
+          type = "lua";
+          config = builtins.readFile ./rustacean.lua;
         }
 
         {
@@ -86,6 +98,7 @@ in
 
       extraPackages = with pkgs; [
         lua-language-server
+        rust-analyzer
       ];
 
       extraLuaConfig = ''
