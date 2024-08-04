@@ -1,7 +1,7 @@
 require("oil").setup({
     default_file_explorer = true,
     columns = { "icon" },
-    kemaps = {
+    keymaps = {
         ["<C-h>"] = false,
         ["<M-h>"] = "actions.select_split",
     },

@@ -1,3 +1,5 @@
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 vim.g.rustaceanvim = {
     tools = {},
     server = {
@@ -13,6 +15,7 @@ vim.g.rustaceanvim = {
         end,
         default_settings = {
             ['rust-analyzer'] = {
+                capabilities = capabilities
             },
         },
     },

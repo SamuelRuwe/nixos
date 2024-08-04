@@ -14,7 +14,14 @@ in
 
       plugins = with pkgs.vimPlugins; [
         nvim-web-devicons
-        trouble-nvim
+        rose-pine
+
+        {
+          plugin = trouble-nvim;
+          type = "lua";
+          config = builtins.readFile ./trouble.lua;
+        }
+
         vim-nix
         plenary-nvim
 
@@ -54,10 +61,14 @@ in
           config = builtins.readFile ./telescope.lua;
         }
 
-
+        neodev-nvim
         nvim-treesitter.withAllGrammars
 
-        fidget-nvim
+        {
+          plugin = fidget-nvim;
+          type = "lua";
+          config = builtins.readFile ./fidget.lua;
+        }
 
         # Completions
         cmp-nvim-lsp
