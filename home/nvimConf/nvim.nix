@@ -15,6 +15,21 @@ in
       plugins = with pkgs.vimPlugins; [
         nvim-web-devicons
         rose-pine
+        nui-nvim
+
+        {
+          plugin = zen-mode-nvim;
+          type = "lua";
+          config = builtins.readFile ./zen.lua;
+        }
+
+
+        {
+          plugin = neo-tree-nvim;
+          type = "lua";
+          config = builtins.readFile ./neotree.lua;
+        }
+
 
         {
           plugin = trouble-nvim;
