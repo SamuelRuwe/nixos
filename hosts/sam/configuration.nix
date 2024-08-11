@@ -8,20 +8,20 @@
       inputs.home-manager.nixosModules.default
     ];
 
-#  programs.hyprland = {
-#      enable = true;
-#      xwayland.enable = true;
-#  };
-#
-#  hardware = {
-#      opengl.enable = true;
-#      nvidia.modesetting.enable = true;
-#  };
-#
-#  environment.sessionVariables = {
-#      WLR_NO_HARDWARE_CURSORS = "1";
-#      NISOS_OZONE_WL = "1";
-#  };
+ programs.hyprland = {
+     enable = true;
+     xwayland.enable = true;
+ };
+
+ hardware = {
+     opengl.enable = true;
+     nvidia.modesetting.enable = true;
+ };
+
+ environment.sessionVariables = {
+     WLR_NO_HARDWARE_CURSORS = "1";
+     NISOS_OZONE_WL = "1";
+ };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -50,6 +50,9 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.wayland.enable = true;
+  # services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -94,6 +97,7 @@
     tmux
     unzip
     xclip
+    where-is-my-sddm-theme
   ];
 
   programs.zsh.enable = true;

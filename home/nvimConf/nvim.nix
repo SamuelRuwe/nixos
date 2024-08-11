@@ -16,6 +16,7 @@ in
         nvim-web-devicons
         rose-pine
         nui-nvim
+        rust-vim
 
         {
           plugin = zen-mode-nvim;
@@ -124,6 +125,7 @@ in
 
       extraPackages = with pkgs; [
         lua-language-server
+        rustfmt
         rust-analyzer
       ];
 

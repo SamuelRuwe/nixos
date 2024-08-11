@@ -9,6 +9,8 @@
     userEmail = "ruwesam@gmail.com";
     aliases = {
       staash = "staash --all";
+      s = "status";
+      l = "log --pretty=oneline";
     };
     ignores = [ "*.swp" ];
     extraConfig = {
