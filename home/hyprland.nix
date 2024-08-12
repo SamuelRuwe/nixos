@@ -1,5 +1,13 @@
-{config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
+
+  options = {
+    hyprland.enable = lib.mkEnableOption "Enables hyprland config";
+  };
+
+  config = lib.mkIf config.hyprland.enable {
+    home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+  };
   # wayland.windowManager.hyprland = {
     # enable = true;
     # package = pkgs.hyprland;
@@ -20,5 +28,4 @@
 #      enable = true;
 #  };
 
-   home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
 }

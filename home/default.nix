@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -7,6 +7,7 @@
     ./kitty.nix
     ./cli.nix
     ./programs
+    ./tmux.nix
     ./nvimConf/nvim.nix
   ];
 
@@ -24,4 +25,10 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  hyprland.enable = true;
+  cli.enable = true;
+  kitty.enable = true;
+  tmux.enable = true;
+  zsh.enable = true;
 }

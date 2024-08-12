@@ -94,7 +94,6 @@
     gcc
     ripgrep
     rustc
-    tmux
     unzip
     xclip
     where-is-my-sddm-theme
