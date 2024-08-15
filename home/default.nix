@@ -9,6 +9,8 @@
     ./programs
     ./tmux.nix
     ./nvimConf/nvim.nix
+    # ./wms/hyprland.nix
+    # ./wms/waybar.nix
   ];
 
   home = {

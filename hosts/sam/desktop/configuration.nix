@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./firefox.nix
       ./hardware-configuration.nix
+      ./greetd.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -13,9 +14,11 @@
      xwayland.enable = true;
  };
 
+
  hardware = {
-     opengl.enable = true;
-     nvidia.modesetting.enable = true;
+    pulseaudio.enable = false;
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
  };
 
  environment.sessionVariables = {
@@ -49,14 +52,14 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.displayManager.sddm.wayland.enable = true;
   # services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -68,7 +71,6 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -98,6 +100,8 @@
     xclip
     where-is-my-sddm-theme
   ];
+
+  xdg.portal.enable = true;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;

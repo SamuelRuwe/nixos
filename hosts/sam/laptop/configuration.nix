@@ -8,6 +8,14 @@
       inputs.home-manager.nixosModules.default
     ];
 
+    # options = {
+    #   laptop.enable = lib.mkEnableOption "Enables laptop configuration"
+    # };
+    #
+    # config = lib.mkIf config.laptop.enable {
+    #
+    # };
+
  programs.hyprland = {
      enable = true;
      xwayland.enable = true;
