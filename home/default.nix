@@ -4,6 +4,7 @@
   imports = [
     ./zsh.nix
     ./hyprland.nix
+    ./waybar.nix
     ./kitty.nix
     ./cli.nix
     ./programs
@@ -17,10 +18,6 @@
     stateVersion = "24.05";
   };
 
-  home.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; })
-  ];
-
   home.enableNixpkgsReleaseCheck = false;
 
   programs.home-manager.enable = true;
@@ -29,5 +26,6 @@
   cli.enable = true;
   kitty.enable = true;
   tmux.enable = true;
+  waybar.enable = true;
   zsh.enable = true;
 }
