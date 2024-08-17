@@ -16,29 +16,35 @@
           "XCURSOR_SIZE,24"
         ];
 
-       # general = {
-       #    gaps_in = 5;
-       #    gaps_out = 10;
-       #    border_size = 2;
-       #    "col.active_border" = "rgba(${config.stylix.base16Scheme.base0E}ff) rgba(${config.stylix.base16Scheme.base09}ff) 60deg";
-       #    "col.inactive_border" = "rgba(${config.stylix.base16Scheme.base00}ff)";
-       #    layout = "dwindle";
-       # };
+        input = {
+          kb_layout = "us";
+          kb_rules = "";
+          follow_mouse = 1;
+          force_no_accel = true;
+          sensitivity = 0.0;
+        };
+
+        animations = {
+          enabled = true;
+        };
 
       exec-once = [
-
         "swww-daemon &"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
+        "swww img display/nixos_chan.png"
         "waybar &"
         "dunst"
-        # "swww img ~/Downloads/nixos-chan.png"
-        # "waybar"
       ];
 
        bind =
           [
-            "$mod, Q, exec, kitty"
+            "$mod, T, exec, kitty"
+            "$mod, Q, killactive,"
             "$mod, F, exec, firefox"
+            # "$mod, left, movefocus, l"
+            # "$mod, right, movefocus, r"
             "$mod, S, exec, rofi -show drun -show-icons"
+            "$mod, Tab, cyclenext,"
           ]
           ++ (
             # workspaces
@@ -60,11 +66,13 @@
     };
 
     home.packages = with pkgs; [
+      grim
       wl-clipboard
       swww
       rofi-wayland
       dunst
       libnotify
+      networkmanagerapplet
       waybar
     ];
   };

@@ -9,8 +9,6 @@
     ./programs
     ./tmux.nix
     ./nvimConf/nvim.nix
-    # ./wms/hyprland.nix
-    # ./wms/waybar.nix
   ];
 
   home = {
@@ -25,7 +23,6 @@
 
   home.enableNixpkgsReleaseCheck = false;
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   hyprland.enable = true;

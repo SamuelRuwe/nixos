@@ -51,16 +51,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.displayManager.sddm.wayland.enable = true;
-  # services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
-
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -83,9 +73,6 @@
     isNormalUser = true;
     description = "Sam Ruwe";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      httpie
-    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -98,7 +85,6 @@
     rustc
     unzip
     xclip
-    where-is-my-sddm-theme
   ];
 
   xdg.portal.enable = true;
