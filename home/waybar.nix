@@ -12,37 +12,119 @@
       style = ./waybar.css;
       settings = {
         mainBar = {
-          modules-left = ["hyprland/workspaces" "hyprland/mode" "cpu" "memory"];
-          modules-center = [];
-          modules-right = ["network" "clock"];
-
-          cpu = {
-            interval = 15;
-            format = "  {}%";
-            max-length = 10;
-          };
+          modules-left = ["hyprland/workspaces" "custom/right-arrow-dark"];
+          modules-center = [
+            "custom/left-arrow-dark"
+            "clock#1"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "clock#2"
+            "custom/right-arrow-dark"
+            "custom/right-arrow-light"
+            "clock#3"
+            "custom/right-arrow-dark"
+          ];
+          modules-right = [
+            "custom/left-arrow-dark"
+            "pulseaudio"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "memory"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "cpu"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "battery"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "disk"
+            "custom/left-arrow-light"
+            "custom/left-arrow-dark"
+            "tray"
+          ];
 
           memory = {
             interval = 30;
-            format = "  {}%";
+            format =  "Mem {}%";
             max-length = 10;
           };
 
+          "custom/left-arrow-dark" = {
+              format = "";
+              tooltip = false;
+          };
+
+          "custom/left-arrow-light" = {
+              format = "";
+              tooltip = false;
+          };
+
+          "custom/right-arrow-dark" = {
+              format = "";
+              tooltip = false;
+          };
+          "custom/right-arrow-light" = {
+              format = "";
+              tooltip = false;
+          };
+
+          "hyprland/workspaces" = {
+              disable-scroll = true;
+              format = "{name}";
+          };
+
+          "clock#1" = {
+              format = "{:%a}";
+              tooltip = false;
+          };
+
+          "clock#2" = {
+              format = "{:%H:%M}";
+              tooltip = false;
+          };
+
+          "clock#3" = {
+              format = "{:%m-%d}";
+              tooltip = false;
+          };
+
           "pulseaudio" = {
-            format = "{volume}% {icon}";
-            format-bluetooth = "{volume}% {icon}";
-            format-muted = "";
-            format-icons = {
-              headphone = "";
-              hands-free = "";
-              headset = "";
-              phone = "";
-              portable = "";
-              car = "";
-              default = ["" ""];
-            };
-            scroll-step = 1;
-            on-click = "pavucontrol";
+              format = "{icon} {volume:2}%";
+              format-bluetooth = "{icon}  {volume}%";
+              format-muted = "MUTE";
+              format-icons = {
+                  headphones = "";
+                  default = [ "" "" ];
+              };
+              scroll-step = 5;
+              on-click = "pamixer -t";
+              on-click-right = "pavucontrol";
+          };
+
+          cpu = {
+              interval = 5;
+              format = "CPU {usage:2}%";
+          };
+
+          battery = {
+              states = {
+                  good = 95;
+                  warning = 30;
+                  critical = 15;
+              };
+              format = "{icon} {capacity}%";
+              format-icons = [ "" "" "" "" "" ];
+          };
+
+          disk = {
+              interval = 5;
+              format = "Disk {percentage_used:2}%";
+              path = "/";
+          };
+
+          tray = {
+              icon-size = 20;
           };
 
           backlight = {
@@ -63,11 +145,6 @@
             tooltip-format-ethernet = "{ifname} ";
             tooltip-format-disconnected = "Disconnected";
             max-length = 50;
-          };
-
-          battery = {
-            format = "{capacity}% {icon}";
-            "format-icons" =  ["" "" "" "" ""];
           };
 
           clock = {
