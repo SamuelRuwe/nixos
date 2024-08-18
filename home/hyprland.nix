@@ -41,8 +41,8 @@
       exec-once = [
         "swww-daemon &"
         "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
-        "swww img display/nixos_chan.png"
-        "waybar &"
+        "swww img ~/Downloads/nixos_chan.png"
+        # "waybar &"
         "dunst"
       ];
 
@@ -81,7 +81,6 @@
       swww
       rofi-wayland
       dunst
-      libnotify
       networkmanagerapplet
     ];
   };

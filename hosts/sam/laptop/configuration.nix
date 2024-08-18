@@ -4,17 +4,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./firefox.nix
+      ./greetd.nix
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
-
-    # options = {
-    #   laptop.enable = lib.mkEnableOption "Enables laptop configuration"
-    # };
-    #
-    # config = lib.mkIf config.laptop.enable {
-    #
-    # };
 
  programs.hyprland = {
      enable = true;
@@ -57,7 +50,7 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.displayManager.sddm.wayland.enable = true;
   # services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
@@ -106,6 +99,8 @@
     xclip
     where-is-my-sddm-theme
   ];
+
+  # xdg.portal.enable = true;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;

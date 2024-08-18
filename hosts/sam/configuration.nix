@@ -1,11 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./firefox.nix
       ./hardware-configuration.nix
-      ./greetd.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -15,9 +14,8 @@
  };
 
  hardware = {
-    pulseaudio.enable = false;
-    opengl.enable = true;
-    nvidia.modesetting.enable = true;
+     opengl.enable = true;
+     nvidia.modesetting.enable = true;
  };
 
  environment.sessionVariables = {
@@ -50,6 +48,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.wayland.enable = true;
+  # services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -57,9 +65,10 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -72,6 +81,9 @@
     isNormalUser = true;
     description = "Sam Ruwe";
     extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      httpie
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -84,9 +96,8 @@
     rustc
     unzip
     xclip
+    where-is-my-sddm-theme
   ];
-
-  xdg.portal.enable = true;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
