@@ -12,6 +12,14 @@
       style = ./waybar.css;
       settings = {
         mainBar = {
+
+          layer = "top";
+          position = "bottom";
+          height = 35;
+          margin-top = 5;
+          margin-bottom = 10;
+          spacing = 4;
+
           modules-left = ["hyprland/workspaces" "custom/right-arrow-dark"];
           modules-center = [
             "custom/left-arrow-dark"
@@ -102,11 +110,6 @@
               on-click-right = "pavucontrol";
           };
 
-          cpu = {
-              interval = 5;
-              format = "CPU {usage:2}%";
-          };
-
           battery = {
               states = {
                   good = 95;
@@ -123,10 +126,6 @@
               path = "/";
           };
 
-          tray = {
-              icon-size = 20;
-          };
-
           backlight = {
             tooltip = false;
             format = " {}%";
@@ -138,8 +137,8 @@
           network = {
             format = "{ifname}";
             format-wifi = "{essid} ({signalStrength}%) ";
-            format-ethernet = "{ipaddr}/{cidr} 󰊗";
-            format-disconnected = "󰤮";
+            format-ethernet = "Connected  ";
+            format-disconnected = "Disconnected ⚠";
             tooltip-format = "{ifname} via {gwaddr} 󰊗";
             tooltip-format-wifi = "{essid} ({signalStrength}%) ";
             tooltip-format-ethernet = "{ifname} ";
@@ -147,8 +146,41 @@
             max-length = 50;
           };
 
+          keyboard-state = {
+              numlock = true;
+              capslock = true;
+              format = " {name} {icon}";
+              format-icons = {
+                  locked = "";
+                  unlocked = "";
+              };
+          };
+
+          "hyprland/mode" = {
+              format = "<span style=\"italic\">{}</span>";
+          };
+
+          idle_inhibitor = {
+              format = "{icon}";
+              format-icons = {
+                  activated = "";
+                  deactivated = "";
+              };
+          };
+
+          tray = {
+              icon-size = 20;
+              spacing = 10;
+          };
+
           clock = {
-            "format-alt" = "{:%a, %d. %b  %H:%M}";
+              tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+              format-alt = "{:%Y-%m-%d}";
+            };
+
+          cpu = {
+              format = "{usage}% ";
+              tooltip = false;
           };
         };
       };

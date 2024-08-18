@@ -72,11 +72,17 @@
 
     home.packages = with pkgs; [
       grim
+      slurp
       wl-clipboard
       swww
       rofi-wayland
       dunst
-      networkmanagerapplet
     ];
+
+    home.sessionVariables = {
+      QT_QPA_PLATFORM = "wayland";
+      SDL_VIDEODRIVER = "wayland";
+      XDG_SESSION_TYPE = "wayland";
+    };
   };
 }

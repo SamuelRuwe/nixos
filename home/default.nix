@@ -5,7 +5,7 @@
     ./stylix.nix
     ./zsh.nix
     ./hyprland.nix
-    ./waybar.nix
+    ./waybar/firstTheme/waybar.nix
     ./kitty.nix
     ./cli.nix
     ./programs
