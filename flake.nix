@@ -18,8 +18,8 @@
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/sam/laptop/configuration.nix
-        ./home/stylix.nix
+        ./hosts/sam/desktop/configuration.nix
+        ./hosts/sam/stylix.nix
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {

@@ -3,8 +3,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./firefox.nix
-      ./greetd.nix
+      ../firefox.nix
+      ../greetd.nix
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -48,16 +48,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.displayManager.sddm.wayland.enable = true;
-  # services.xserver.displayManager.sddm.theme = "where_is_my_sddm_theme";
-
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

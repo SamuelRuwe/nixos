@@ -3,9 +3,9 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./firefox.nix
+      ../firefox.nix
+      ../greetd.nix
       ./hardware-configuration.nix
-      ./greetd.nix
       inputs.home-manager.nixosModules.default
     ];
 

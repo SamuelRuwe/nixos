@@ -14,11 +14,7 @@
           gaps_in = 5;
           gaps_out = 10;
           border_size = 2;
-          # "col.active_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base0E}ff) rgba(${config.stylix.base16Scheme.base09}ff) 60deg";
-          # "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base00}ff)";
-          # layout = "dwindle";
         };
-
 
        "$mod" = "SUPER";
 
@@ -42,7 +38,6 @@
         "swww-daemon &"
         "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
         "swww img ~/Downloads/nixos_chan.png"
-        # "waybar &"
         "dunst"
       ];
 

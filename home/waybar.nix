@@ -9,10 +9,10 @@
     programs.waybar = {
       enable = true;
       systemd.enable = true;
-      # style = ./waybar.css;
+      style = ./waybar.css;
       settings = {
         mainBar = {
-          modules-left = ["sway/workspaces" "sway/mode" "cpu" "memory"];
+          modules-left = ["hyprland/workspaces" "hyprland/mode" "cpu" "memory"];
           modules-center = [];
           modules-right = ["network" "clock"];
 

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./stylix.nix
     ./zsh.nix
     ./hyprland.nix
     ./waybar.nix
