@@ -17,7 +17,6 @@
           height = 35;
           margin-top = 5;
           margin-bottom = 10;
-          # spacing = 4;
           modules-center = [
             "custom/launcher"
             "hyprland/workspaces"
@@ -36,6 +35,11 @@
             "clock"
             "custom/power"
           ];
+
+          "custom/ic" = {
+            format = " ";
+            tooltip = false;
+          };
 
           "pulseaudio" = {
               format = "{icon} {volume:2}%";
@@ -137,15 +141,14 @@
           };
 
           "custom/launcher" = {
-              format = " ";
+              format = "";
               on-click = "rofi -show drun";
               on-click-right = "killall rofi";
           };
 
           "custom/power" = {
-              format = " ";
-              on-click = "bash ~/.config/rofi/leave/powermenu.sh";
-              on-click-right = "killall rofi";
+              format = " ";
+              on-click = "wlogout";
           };
         };
       };

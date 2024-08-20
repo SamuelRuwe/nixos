@@ -84,6 +84,7 @@
     rustc
     unzip
     xclip
+    discord
   ];
 
   xdg.portal.enable = true;

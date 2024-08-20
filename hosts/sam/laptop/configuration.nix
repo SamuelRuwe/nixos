@@ -88,6 +88,7 @@
     unzip
     xclip
     where-is-my-sddm-theme
+    discord
   ];
 
   # xdg.portal.enable = true;

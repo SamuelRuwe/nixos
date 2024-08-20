@@ -284,3 +284,9 @@ label:focus {
 #keyboard-state > label.locked {
     background: rgba(0, 0, 0, 0.2);
 }
+
+#custom-ic {
+    background-image: url("/home/sam/Downloads/hyprland-icon-20.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
