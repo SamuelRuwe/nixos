@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./emoji.nix
+    ./emoji.nix
     ./rofi/rofi.nix
     ./rofi/config-emoji.nix
     ./rofi/config-long.nix
@@ -10,9 +10,7 @@
     ./stylix.nix
     ./zsh.nix
     ./hyprland.nix
-    ./swaync.nix
-    # ./waybar/thirdTheme/waybar.nix
-    ./waybar/fourthTheme/waybar.nix
+    ./waybar.nix
     ./kitty.nix
     ./cli.nix
     ./programs
@@ -34,7 +32,7 @@
 
   programs.home-manager.enable = true;
 
-  dunst.enable = false;
+  dunst.enable = true;
   hyprland.enable = true;
   cli.enable = true;
   kitty.enable = true;

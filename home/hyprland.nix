@@ -19,10 +19,6 @@
           resize_on_border = true;
           "col.active_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base0E}ff) rgba(${config.stylix.base16Scheme.base09}ff) 60deg";
           "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base00}ff)";
-          # col = {
-          #   active_border = "rgb(${config.stylix.base16Scheme.base08}) rgb(${config.stylix.base16Scheme.base0C}) 45deg";
-          #   inactive_border = "rgb(${config.stylix.base16Scheme.base01})";
-          # };
         };
 
         "$mod" = "SUPER";
@@ -60,6 +56,7 @@
           "swww img ~/Downloads/nixos_chan.png"
           "killall -q swaync;sleep .5 && swaync"
           "killall -q waybar;sleep .5 && waybar"
+          "dunst"
         ];
 
         bind =
@@ -96,6 +93,7 @@
       slurp
       wl-clipboard
       swww
+      libnotify
       wlogout
     ];
 
