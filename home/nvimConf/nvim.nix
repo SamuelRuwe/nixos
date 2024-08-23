@@ -97,7 +97,6 @@ in
 
         luasnip
         cmp_luasnip
-
         {
           plugin = nvim-lspconfig;
           type = "lua";
@@ -125,8 +124,6 @@ in
 
       extraPackages = with pkgs; [
         lua-language-server
-        rustfmt
-        rust-analyzer
       ];
 
       extraLuaConfig = ''

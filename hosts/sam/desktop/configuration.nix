@@ -85,6 +85,7 @@
     unzip
     xclip
     discord
+    fd
   ];
 
   xdg.portal = {
