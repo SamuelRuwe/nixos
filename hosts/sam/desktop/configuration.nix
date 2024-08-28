@@ -77,11 +77,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    cargo
     curl
-    gcc
     ripgrep
-    rustc
     unzip
     xclip
     discord
