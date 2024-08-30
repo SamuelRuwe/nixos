@@ -15,20 +15,37 @@
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/sam/desktop/configuration.nix
-        ./hosts/sam/stylix.nix
-        stylix.nixosModules.stylix
-        home-manager.nixosModules.home-manager
-        {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.sam = import ./home;
-          home-manager.backupFileExtension = "backup";
-        }
-      ];
+    nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/sam/desktop/configuration.nix
+          ./hosts/sam/stylix.nix
+          stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.sam = import ./home;
+            home-manager.backupFileExtension = "backup";
+          }
+        ];
+      };
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/sam/laptop/configuration.nix
+          ./hosts/sam/stylix.nix
+          stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.sam = import ./home;
+            home-manager.backupFileExtension = "backup";
+          }
+        ];
+      };
     };
   };
 }
