@@ -3,6 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      ./openssh.nix
       ./hosts.nix
       ./firefox.nix
       ./greetd.nix
@@ -14,7 +15,6 @@
      xwayland.enable = true;
  };
 
- services.openssh.enable = true;
  services.fail2ban.enable = true;
 
  hardware = {
@@ -74,6 +74,9 @@
     isNormalUser = true;
     description = "Sam Ruwe";
     extraGroups = [ "networkmanager" "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2Un4494+M+C/BE1i0iiPwHWroq01xPski/0wZo7ESx"
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
