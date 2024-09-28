@@ -20,7 +20,6 @@
           "col.active_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base0E}ff) rgba(${config.stylix.base16Scheme.base09}ff) 60deg";
           "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base00}ff)";
         };
-
         "$mod" = "SUPER";
 
         env = [
@@ -53,7 +52,7 @@
         exec-once = [
           "swww-daemon &"
           "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
-          "swww img ~/Downloads/nixos_chan.png"
+          "swww img ~/Downloads/japanese_background.jpg"
           "killall -q swaync;sleep .5 && swaync"
           "killall -q waybar;sleep .5 && waybar"
           "dunst"
@@ -64,6 +63,7 @@
              "$mod, T, exec, kitty"
              "$mod, Q, killactive,"
              "$mod, F, exec, firefox"
+             "$mod, X, exec, slurp"
              # "$mod, left, movefocus, l"
              # "$mod, right, movefocus, r"
              "$mod, S, exec, rofi -show drun -show-icons"
@@ -88,14 +88,14 @@
          };
       };
 
-    home.packages = with pkgs; [
-      grim
-      slurp
-      wl-clipboard
-      swww
-      libnotify
-      wlogout
-    ];
+      home.packages = with pkgs; [
+        grim
+        slurp
+        wl-clipboard
+        swww
+        libnotify
+        wlogout
+      ];
 
     home.sessionVariables = {
       QT_QPA_PLATFORM = "wayland";

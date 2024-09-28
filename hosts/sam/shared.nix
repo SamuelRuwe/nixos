@@ -70,6 +70,10 @@
     pulse.enable = true;
   };
 
+  services.wireplumber = {
+    enable = true;
+  };
+
   users.users.sam = {
     isNormalUser = true;
     description = "Sam Ruwe";
@@ -89,6 +93,7 @@
     xclip
     discord
     fd
+    vesktop
   ];
 
   xdg.portal = {

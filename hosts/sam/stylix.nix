@@ -7,7 +7,7 @@
 
     polarity = "dark";
 
-    image = ./nixos_chan.png;
+    image = ./japanese_background.jpg;
 
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
@@ -28,8 +28,8 @@
 
       sizes = {
         applications = 12;
-        terminal = 15;
-        desktop = 11;
+        terminal = 12;
+        desktop = 12;
         popups = 12;
       };
     };
