@@ -19,7 +19,7 @@
 
  hardware = {
     pulseaudio.enable = false;
-    opengl.enable = true;
+    graphics.enable = true;
     nvidia.modesetting.enable = true;
  };
 
@@ -33,6 +33,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 57621 ];
+  networking.firewall.allowedUDPPorts = [ 5353 ];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -70,9 +72,9 @@
     pulse.enable = true;
   };
 
-  services.wireplumber = {
-    enable = true;
-  };
+  # services.wireplumber = {
+  #   enable = true;
+  # };
 
   users.users.sam = {
     isNormalUser = true;
@@ -91,9 +93,11 @@
     ripgrep
     unzip
     xclip
+    # do I need discord and vesktop? Try to remove this later
     discord
     fd
     vesktop
+    spotify
   ];
 
   xdg.portal = {

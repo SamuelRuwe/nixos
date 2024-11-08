@@ -8,7 +8,7 @@ in
     programs.neovim = {
       enable = true;
       viAlias = true;
-      vimAlias = true;
+      vimAlias = false;
       vimdiffAlias = true;
       defaultEditor = true;
 
@@ -30,7 +30,6 @@ in
           type = "lua";
           config = builtins.readFile ./neotree.lua;
         }
-
 
         {
           plugin = trouble-nvim;

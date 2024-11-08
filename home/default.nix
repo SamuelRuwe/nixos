@@ -1,5 +1,13 @@
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs, stdenv, fetchzip, ... }:
+let
+  inherit (pkgs) stdenv;
+  hello = pkgs.callPackage ./derivations/hello.nix { };
+  hello2 = hello.overrideAttrs { 
+    postFixup = ''
+      mv $out/bin/hello $out/bin/hello2
+    '';
+  };
+in
 {
   imports = [
     ./emoji.nix
@@ -15,7 +23,8 @@
     ./cli.nix
     ./programs
     ./tmux.nix
-    ./nvimConf/nvim.nix
+    # ./nvimConf/nvim.nix
+    ./nvimConf/other_vim.nix
   ];
 
   home = {
@@ -25,7 +34,12 @@
     packages = [
       (import ../scripts/squirtle.nix { inherit pkgs; })
       (import ../scripts/rofi-launcher.nix { inherit pkgs; })
+      hello
+      hello2
     ];
+    shellAliases = {
+      biteme = "nvim";
+    };
   };
 
   home.enableNixpkgsReleaseCheck = false;

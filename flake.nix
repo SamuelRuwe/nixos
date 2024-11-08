@@ -14,7 +14,11 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: 
+    let
+      hello = nixpkgs.callPackage ./experimental/hello.nix {};
+    in
+    {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};

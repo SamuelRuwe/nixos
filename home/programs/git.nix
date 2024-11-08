@@ -23,4 +23,5 @@
       rerere.enabled = true;
     };
   };
+  programs.lazygit.enable = true;
 }
