@@ -6,12 +6,13 @@ let
       mv $out/bin/hello $out/bin/hello2
     '';
   };
-  nvim2 = pkgs.neovim.overrideAttrs (finalAttrs: previousAttrs: {
-    plugins = previousAttrs.plugins;
-    postFixup = ''
-      mv $out/bin/nvim $out/bin/deeznutz
-    '';
-  });
+  # nvim2 = pkgs.neovim.overrideAttrs (finalAttrs: previousAttrs: {
+  #   plugins = previousAttrs.plugins;
+  #   postFixup = ''
+  #     mv $out/bin/nvim $out/bin/deeznutz
+  #   '';
+  # });
+  nvim2 = import ./neovim/nvim_derivations.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -41,7 +42,7 @@ in
       (import ../scripts/rofi-launcher.nix { inherit pkgs; })
       hello
       hello2
-      nvim2
+      nvim2.nvim2
     ];
     shellAliases = {
       biteme = "nvim";
