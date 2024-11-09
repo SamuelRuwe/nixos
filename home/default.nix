@@ -1,12 +1,17 @@
 { config, lib, pkgs, stdenv, fetchzip, ... }:
 let
-  inherit (pkgs) stdenv;
   hello = pkgs.callPackage ./derivations/hello.nix { };
   hello2 = hello.overrideAttrs { 
     postFixup = ''
       mv $out/bin/hello $out/bin/hello2
     '';
   };
+  nvim2 = pkgs.neovim.overrideAttrs (finalAttrs: previousAttrs: {
+    plugins = previousAttrs.plugins;
+    postFixup = ''
+      mv $out/bin/nvim $out/bin/deeznutz
+    '';
+  });
 in
 {
   imports = [
@@ -36,6 +41,7 @@ in
       (import ../scripts/rofi-launcher.nix { inherit pkgs; })
       hello
       hello2
+      nvim2
     ];
     shellAliases = {
       biteme = "nvim";
