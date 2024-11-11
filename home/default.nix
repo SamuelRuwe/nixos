@@ -1,18 +1,6 @@
 { config, lib, pkgs, stdenv, fetchzip, ... }:
 let
-  hello = pkgs.callPackage ./derivations/hello.nix { };
-  hello2 = hello.overrideAttrs { 
-    postFixup = ''
-      mv $out/bin/hello $out/bin/hello2
-    '';
-  };
-  # nvim2 = pkgs.neovim.overrideAttrs (finalAttrs: previousAttrs: {
-  #   plugins = previousAttrs.plugins;
-  #   postFixup = ''
-  #     mv $out/bin/nvim $out/bin/deeznutz
-  #   '';
-  # });
-  nvim2 = import ./neovim/nvim_derivations.nix { inherit pkgs; };
+  nvim_derivations = import ./neovim/nvim_derivations.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -40,13 +28,9 @@ in
     packages = [
       (import ../scripts/squirtle.nix { inherit pkgs; })
       (import ../scripts/rofi-launcher.nix { inherit pkgs; })
-      hello
-      hello2
-      nvim2.nvim2
+      nvim_derivations.nvim2
+      # nvim_derivations.nvim3
     ];
-    shellAliases = {
-      biteme = "nvim";
-    };
   };
 
   home.enableNixpkgsReleaseCheck = false;

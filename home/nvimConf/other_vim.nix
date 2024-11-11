@@ -7,7 +7,7 @@ in
   programs.neovim = {
     enable = true;
     viAlias = true;
-    vimAlias = true;
+    vimAlias = false;
     withNodeJs = true;
     extraPackages = with pkgs; [
       lua-language-server

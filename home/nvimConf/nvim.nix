@@ -24,7 +24,6 @@ in
           config = builtins.readFile ./zen.lua;
         }
 
-
         {
           plugin = neo-tree-nvim;
           type = "lua";
@@ -133,4 +132,3 @@ in
     };
   };
 }
-
