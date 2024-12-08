@@ -80,7 +80,6 @@ in
         lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
       in
 
-
       ''
         require("lazy").setup({
           defaults = {

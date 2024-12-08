@@ -16,12 +16,17 @@ let
 
   updated_plugins = with pkgs.vimPlugins; [
     rose-pine
+    nvim-treesitter.withAllGrammars
+    {
+      plugin = nvim-lspconfig;
+      type = "lua";
+      config = builtins.readFile ./lsp.lua;
+    }
   ];
 
   pkg = {
     nvim2 = nvimDev.override { 
       configure = {
-        vimAlias = true;
         packages.samsCustomStuff.start = updated_plugins; 
       };
     };
