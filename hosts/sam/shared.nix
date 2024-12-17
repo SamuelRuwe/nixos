@@ -10,23 +10,25 @@
       inputs.home-manager.nixosModules.default
     ];
 
- programs.hyprland = {
-     enable = true;
-     xwayland.enable = true;
- };
+  documentation.man.generateCaches = true;
 
- services.fail2ban.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
- hardware = {
+  services.fail2ban.enable = true;
+
+  hardware = {
     pulseaudio.enable = false;
     graphics.enable = true;
     nvidia.modesetting.enable = true;
- };
+  };
 
- environment.sessionVariables = {
-     WLR_NO_HARDWARE_CURSORS = "1";
-     NISOS_OZONE_WL = "1";
- };
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NISOS_OZONE_WL = "1";
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
