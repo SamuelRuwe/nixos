@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "tmux-sessionizer" ''
   if [[ $# -eq 1 ]]; then
       selected=$1
   else
-      selected=$(find ~/workspace ~/flakes -mindepth 1 -maxdepth 1 -type d | fzf)
+      selected=$(find ~/workspace/ ~/flakes/ -mindepth 1 -maxdepth 1 -type d | fzf)
   fi
 
   if [[ -z $selected ]]; then
@@ -23,5 +23,9 @@ pkgs.writeShellScriptBin "tmux-sessionizer" ''
       tmux new-session -ds $selected_name -c $selected
   fi
 
-  tmux switch-client -t $selected_name
+  if [[ -z $TMUX ]]; then
+      tmux attach-session -t $selected_name
+  else
+      tmux switch-client -t $selected_name
+  fi
 ''

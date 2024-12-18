@@ -29,7 +29,9 @@ in
     packages = [
       (import ../scripts/squirtle.nix { inherit pkgs; })
       (import ../scripts/rofi-launcher.nix { inherit pkgs; })
+      (import ../scripts/tmux-sessionizer.nix { inherit pkgs; })
       next_vim
+      pkgs.fzf
       # nvim_derivations.nvim2
       # inputs.neovim-overlay
       # nvim_derivations.nvim3
