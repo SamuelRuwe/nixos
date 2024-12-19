@@ -8,4 +8,9 @@
     ];
 
   networking.hostName = "sams-laptop"; # Define your hostname.
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  services.blueman.enable = true;
 }
