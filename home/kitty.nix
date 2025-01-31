@@ -10,8 +10,7 @@
       enable = true;
       shellIntegration.enableZshIntegration = true;
       extraConfig = ''
-        action_alias sessionize tmux-sessionizer
-        map ctrl+f sessionize
+        map ctrl+f send_text normal,application tmux-sessionizer\r
       '';
     };
   };
