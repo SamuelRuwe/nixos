@@ -11,7 +11,7 @@
       shortcut = "a";
       # aggressiveResize = true; -- Disabled to be iTerm-friendly
       baseIndex = 1;
-      newSession = true;
+      newSession = false;
       # Stop tmux+escape craziness.
       escapeTime = 0;
       # Force tmux to use /tmp for sockets (WSL2 compat)

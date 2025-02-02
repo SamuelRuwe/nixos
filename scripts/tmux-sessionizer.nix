@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "tmux-sessionizer" ''
   if [[ $# -eq 1 ]]; then
       selected=$1
   else
-      selected=$(find ~/workspace/ ~/flakes/ -mindepth 1 -maxdepth 1 -type d | fzf)
+      selected=$(find ~/flakes/ ~/workspace/games/ ~/workspace/rust/ ~/workspace/triangle/ ~/workspace/js/ ~/workspace/nvimPlugins/ -mindepth 1 -maxdepth 1 -type d | fzf)
   fi
 
   if [[ -z $selected ]]; then
@@ -20,7 +20,9 @@ pkgs.writeShellScriptBin "tmux-sessionizer" ''
   fi
 
   if ! tmux has-session -t=$selected_name 2> /dev/null; then
-      tmux new-session -ds $selected_name -c $selected
+      tmux new-session -ds $selected_name -n editor -c $selected
+      tmux new-window -d -n server -c $selected -t $selected_name
+      tmux send-keys -t $selected_name:editor 'vi' Enter
   fi
 
   if [[ -z $TMUX ]]; then
