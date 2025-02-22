@@ -43,6 +43,9 @@
           follow_mouse = 1;
           force_no_accel = true;
           sensitivity = 0.0;
+          touchpad = {
+            natural_scroll = true;
+          };
         };
 
         animations = {
@@ -52,9 +55,9 @@
         exec-once = [
           "swww-daemon &"
           "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &"
-          "swww img ~/Downloads/japanese_background.jpg"
           "killall -q swaync;sleep .5 && swaync"
           "killall -q waybar;sleep .5 && waybar"
+          "swww img ~/Downloads/japanese_background.jpg"
           "dunst"
         ];
 

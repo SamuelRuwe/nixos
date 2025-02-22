@@ -8,6 +8,7 @@
   config = lib.mkIf config.steam.enable {
     programs.steam = {
       enable = true;
+      gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
@@ -20,20 +21,20 @@
 
     programs.gamemode.enable = true;
 
-    services.xserver.videoDrivers = [ "nvidia" ];
+    # services.xserver.videoDrivers = [ "nvidia" ];
 
     hardware = {
       opengl = {
         enable = true;
       };
-      nvidia = {
-        modesetting.enable = true;
-        powerManagement.enable = false;
-        powerManagement.finegrained = false;
-        open = false;
-        nvidiaSettings = true;
-        package = config.boot.kernelPackages.nvidiaPackages.production;
-      };
+      # nvidia = {
+      #   modesetting.enable = true;
+      #   powerManagement.enable = false;
+      #   powerManagement.finegrained = false;
+      #   open = false;
+      #   nvidiaSettings = true;
+      #   package = config.boot.kernelPackages.nvidiaPackages.production;
+      # };
     };
   };
 }
