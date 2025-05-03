@@ -18,9 +18,9 @@
   };
 
   services.fail2ban.enable = true;
+  services.pulseaudio.enable = false;
 
   hardware = {
-    pulseaudio.enable = false;
     graphics.enable = true;
     nvidia.modesetting.enable = true;
   };

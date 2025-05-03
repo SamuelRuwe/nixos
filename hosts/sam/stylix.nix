@@ -11,6 +11,7 @@
 
     cursor.package = pkgs.bibata-cursors;
     cursor.name = "Bibata-Modern-Ice";
+    cursor.size = 24;
 
     fonts = {
       monospace = {
@@ -28,10 +29,10 @@
 
       sizes = {
         # applications = 11;
-        applications = 15;
-        terminal = 15;
-        desktop = 15;
-        popups = 15;
+        applications = 12;
+        terminal = 12;
+        desktop = 12;
+        popups = 12;
       };
     };
   };

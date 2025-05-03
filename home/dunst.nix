@@ -166,21 +166,21 @@
 
         };
 
-        urgency_low = {
+        urgency_low = lib.mkForce {
           frame_color = "#268bd2";
           foreground = "#002b36";
           background = "#fdf6e3";
           #timeout = 1;
         };
 
-        urgency_normal = {
+        urgency_normal = lib.mkForce {
           frame_color = "#b58900";
           foreground = "#002b36";
           background = "#fdf6e3";
           #timeout = 1;
         };
 
-        urgency_critical = {
+        urgency_critical = lib.mkForce {
           frame_color = "#dc322f";
           foreground = "#002b36";
           background = "#fdf6e3";
