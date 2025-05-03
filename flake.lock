@@ -767,11 +767,19 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1740244538,
         "narHash": "sha256-JPBcifKcJWOg5J0v4FaYejUto7X/zRI7UfFQ+atNJD0=",
         "owner": "SamuelRuwe",
         "repo": "neovim-flake",
         "rev": "594b5cd5b794fa41b110a536609c303bc1da0aa6",
+=======
+        "lastModified": 1745070640,
+        "narHash": "sha256-Tj2pryw6pmHjtY0Txom+V8fJxR+MY4ybP6zQ8MlIvkI=",
+        "owner": "SamuelRuwe",
+        "repo": "neovim-flake",
+        "rev": "311f8fb42af1d516fc2d273b689c6c73918331e3",
+>>>>>>> 3775556 (feat: Add 256 colors)
         "type": "github"
       },
       "original": {

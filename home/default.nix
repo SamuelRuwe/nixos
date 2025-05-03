@@ -1,6 +1,5 @@
-{ config, lib, pkgs, stdenv, fetchzip, inputs, ... }:
+{ pkgs, inputs, ... }:
 let
-  nvim_derivations = import ./neovim/nvim_derivations.nix { inherit pkgs; };
   next_vim = inputs.neovim-overlay.packages.x86_64-linux.default;
 in
 {
@@ -18,8 +17,6 @@ in
     ./cli.nix
     ./programs
     ./tmux.nix
-    # ./nvimConf/nvim.nix
-    # ./nvimConf/other_vim.nix
   ];
 
   home = {
@@ -28,13 +25,11 @@ in
     stateVersion = "24.05";
     packages = [
       (import ../scripts/squirtle.nix { inherit pkgs; })
+      (import ../scripts/colors.nix { inherit pkgs; })
       (import ../scripts/rofi-launcher.nix { inherit pkgs; })
       (import ../scripts/tmux-sessionizer.nix { inherit pkgs; })
       next_vim
       pkgs.fzf
-      # nvim_derivations.nvim2
-      # inputs.neovim-overlay
-      # nvim_derivations.nvim3
     ];
   };
 

@@ -16,23 +16,39 @@
       escapeTime = 0;
       # Force tmux to use /tmp for sockets (WSL2 compat)
       secureSocket = false;
+      terminal = "tmux-256color";
 
       plugins = with pkgs; [
         tmuxPlugins.better-mouse-mode
       ];
 
       extraConfig = ''
-        set -g default-terminal "xterm-256color"
-        set -ga terminal-overrides ",*256col*:Tc"
-        set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-        set-environment -g COLORTERM "truecolor"
+        set-option -ga terminal-overrides ",*:Tc"
 
         # Mouse works as expected
         set-option -g mouse on
-        # easy-to-remember split pane commands
-        bind | split-window -h -c "#{pane_current_path}"
-        bind - split-window -v -c "#{pane_current_path}"
         bind c new-window -c "#{pane_current_path}"
+        bind-key v split-window -h -c "#{pane_current_path}"
+        bind-key s split-window -v -c "#{pane_current_path}"
+        bind-key h select-pane -L
+        bind-key j select-pane -D
+        bind-key k select-pane -U
+        bind-key x kill-pane
+
+        bind-key C-o rotate-window
+
+        set-window-option -g window-status-current-style fg=colour33
+        set-window-option -g window-status-style bg=default
+
+        # Status Bar
+        set-option -g status-interval 1
+        set-option -g status-style bg=black
+        set-option -g status-style fg=white
+        set -g status-left '#[fg=green]#H #[default]'
+        set -g status-right '%a %l:%M:%S %p#[default] #[fg=blue]%Y-%m-%d'
+        set-option -g pane-active-border-style fg=yellow
+        set-option -g pane-border-style fg=cyan
+        bind-key l select-pane -R
       '';
     };
 
