@@ -30,6 +30,7 @@ in
       (import ../scripts/tmux-sessionizer.nix { inherit pkgs; })
       next_vim
       pkgs.fzf
+      pkgs.nixd
     ];
   };
 

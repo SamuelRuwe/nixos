@@ -100,7 +100,10 @@
     fd
     vesktop
     spotify
+    nixd
   ];
+
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}" ];
 
   xdg.portal = {
     enable = true;

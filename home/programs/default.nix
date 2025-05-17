@@ -2,6 +2,6 @@
     imports = [
       ./common.nix
       ./git.nix
-      ./direnv.nix
+                ./direnv.nix
     ];
 }

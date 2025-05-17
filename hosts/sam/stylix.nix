@@ -18,6 +18,10 @@
         # name = "Iosevka Nerd Font Mono";
         package = pkgs.nerd-fonts.fira-code;
         name = "FiraCode Nerd Font Mono";
+        # package = pkgs.nerd-fonts.cutive-mono;
+        # name = "Cutive Mono";
+        # package = pkgs.nerd-fonts.inconsolata;
+        # name = "Inconsolata Nerd Font";
       };
     };
   };
